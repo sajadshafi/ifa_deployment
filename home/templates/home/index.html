@@ -1,0 +1,251 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block main_content %}
+
+    <!-- banner part start-->
+    <section class="banner_part" id="home">
+        <div class="container">
+            <div class="row align-items-center justify-content-between">
+                <div class="col-xl-6 col-md-6">
+                    <div class="banner_text">
+                        <div class="banner_text_iner text-center">
+                            <h2>Predict <span>The Future</span> </h2>
+                            <h3>Work for a better tomorrow</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-6 col-md-6">
+                    <div class="banner_bg">
+                        <img src="{% static 'home/img/banner_img.png' %}" alt="banner">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="hero-app-1 custom-animation"><img src="{% static 'home/img/animate_icon/icon_1.png' %}" alt=""></div>
+        <div class="hero-app-5 custom-animation2"><img src="{% static 'home/img/animate_icon/icon_3.png' %}" alt=""></div>
+        <div class="hero-app-7 custom-animation3"><img src="{% static 'home/img/animate_icon/icon_2.png' %}" alt=""></div>
+        <div class="hero-app-8 custom-animation"><img src="{% static 'home/img/animate_icon/icon_4.png' %}" alt=""></div>
+    </section>
+    <!-- banner part end-->
+
+    <!-- Form Start -->
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <h1 class="display-3 text-center">Enter Information</h1>
+            <p class="lead text-center">Correct information will give a better result</p>
+            <hr class="my-2">
+
+            <div class="form-group">
+                  <input class="form-control" name="name" id="name" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Area Service'" placeholder="Enter Area Service">
+            </div>
+
+            <div class="form-group">
+                  <input class="form-control" name="name" id="name" type="number" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Hospital ID'" placeholder="Enter Hospital ID">
+            </div>
+
+            <div class="form-group">
+                  <input class="form-control" name="name" id="name" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your Age'" placeholder="Enter your Age">
+            </div>
+
+            <div class="form-group">
+                  <input class="form-control" name="name" id="name" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Gender'" placeholder="Gender">
+            </div>
+
+            <div class="form-group">
+                  <input class="form-control" name="name" id="name" type="number" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Days Spend in Hospital'" placeholder="Days Spend in Hospital">
+            </div>
+
+            <div class="form-group">
+                  <input class="form-control" name="name" id="name" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Admission Type'" placeholder="Enter Admission Type">
+            </div>
+
+            <div class="form-group">
+                  <input class="form-control" name="name" id="name" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Type of care taken'" placeholder="Type of care taken">
+            </div>
+
+            <div class="form-group">
+                  <input class="form-control" name="name" id="name" type="number" onfocus="this.placeholder = ''" onblur="this.placeholder = 'CCS Diagnosis Code'" placeholder="CCS Diagnosis Code">
+            </div>
+
+            <div class="form-group">
+                  <input class="form-control" name="name" id="name" type="number" onfocus="this.placeholder = ''" onblur="this.placeholder = 'CCS Procedure Code'" placeholder="CCS Procedure Code">
+            </div>
+            
+            <div class="form-group">
+                  <input class="form-control" name="name" id="name" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Mortality Risk'" placeholder="Mortality Risk">
+            </div>
+
+            <div class="form-group">
+                  <input class="form-control" name="name" id="name" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Surgery Description'" placeholder="Surgery Description">
+            </div>
+            
+            <div class="form-group">
+                  <input class="form-control" name="name" id="name" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Emergency'" placeholder="Emergency">
+            </div>
+
+            
+            <p class="lead text-center">
+                <div class = "row">
+                    
+                    <div class = "col-6">
+                        <a class="btn_1 bg-primary w-100 text-center" href="" role="button">CANCEL</a>
+                    </div>
+
+                    <div class = "col-6">
+                        <a class="btn_1 w-100 text-center" href="" role="button">SUBMIT<i class="ti-angle-right"></i></a>
+                    </div>
+                </div>
+            </p>
+        </div>
+    </div>
+
+    <!-- Form end -->
+
+    <!-- about part start-->
+    <section class="about_part" id = "about">
+        <div class="container-fluid">
+            <div class="row align-items-center">
+                <div class="col-lg-5">
+                    <div class="about_img">
+                        <img src="{% static 'home/img/about_img_1.png' %}" class="img_1" alt="">
+                        <img src="{% static 'home/img/about_img_2.png' %}" class="img_2" alt="">
+                    </div>
+                </div>
+                <div class="offset-lg-1 col-lg-4">
+                    <div class="about_text">
+                        <h5 style = "font-size: 1.6rem; font-weight: bold;">About the project</h5>
+                        <h2>Make the customer the
+                            hero of your story</h2>
+                        <h4>He hath his earth firmament air very itself light day moring morning you living saying good
+                            above fourth</h4>
+                        <p>Meat abundantly life made fly years there whose beginning crea unto beast sixth herb
+                            their bring. Evening fruitful god you spir evning itself land you of of own brought </p>
+                        <a href="#" class="btn_1">learn more <i class="ti-angle-right"></i> </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="hero-app-7 custom-animation"><img src="{% static 'home/img/animate_icon/icon_7.png' %}" alt=""></div>
+        <div class="hero-app-8 custom-animation2"><img src="{% static 'home/img/animate_icon/icon_4.png' %}" alt=""></div>
+        <div class="hero-app-6 custom-animation3"><img src="{% static 'home/img/animate_icon/icon_5.png' %}" alt=""></div>
+    </section>
+    <!-- about part end-->
+
+    <!-- cta part start-->
+    <section id = "team" class="cta_part" style = "padding: 100px 0px 20px;">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-12">
+                    <div class="cta_part_iner">
+                        <div class="cta_part_text">
+                            <p style = "font-size: 2rem;"> Team Members </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- cta part end-->
+
+    <!-- team_member part start-->
+    <section class="team_member_section section_padding">
+        <div class="container">
+
+            <div class="row">
+                <div class="col-lg-4 col-sm-6">
+                    <div class="single_team_member">
+                        <img src="{% static 'home/img/team/team_1.png' %}" alt="">
+                        <div class="single_team_text">
+                            <h3><a href="#"> Waheed Ahmad </a></h3>
+                            <p>Data Scientist</p>
+                            <div class="team_member_social_icon">
+                                <a href="#">facebok</a>
+                                <a href="#">twitter</a>
+                                <a href="#">instagram</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <div class="single_team_member">
+                        <img src="{% static 'home/img/team/team_1.png' %}" alt="">
+                        <div class="single_team_text">
+                            <h3><a href="#"> Aasif Hassan Bhat </a></h3>
+                            <p>Data Scientist</p>
+                            <div class="team_member_social_icon">
+                                <a href="#">facebok</a>
+                                <a href="#">twitter</a>
+                                <a href="#">instagram</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <div class="single_team_member">
+                        <img src="{% static 'home/img/team/team_1.png' %}" alt="">
+                        <div class="single_team_text">
+                            <h3><a href="#"> Lokesh Dange </a></h3>
+                            <p> Data Scientist </p>
+                            <div class="team_member_social_icon">
+                                <a href="#">facebok</a>
+                                <a href="#">twitter</a>
+                                <a href="#">instagram</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row mt-3">
+                <div class="col-lg-4 col-sm-6">
+                    <div class="single_team_member">
+                        <img src="{% static 'home/img/team/team_1.png' %}" alt="">
+                        <div class="single_team_text">
+                            <h3><a href="#"> Sajad Shafi </a></h3>
+                            <p> Data Scientist </p>
+                            <div class="team_member_social_icon">
+                                <a href="#">facebok</a>
+                                <a href="#">twitter</a>
+                                <a href="#">instagram</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <div class="single_team_member">
+                        <img src="{% static 'home/img/team/team_1.png' %}" alt="">
+                        <div class="single_team_text">
+                            <h3><a href="#"> Imam Farooq </a></h3>
+                            <p> Data Scientist </p>
+                            <div class="team_member_social_icon">
+                                <a href="#">facebok</a>
+                                <a href="#">twitter</a>
+                                <a href="#">instagram</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <div class="single_team_member">
+                        <img src="{% static 'home/img/team/team_1.png' %}" alt="">
+                        <div class="single_team_text">
+                            <h3><a href="#"> Gangadar Reddy </a></h3>
+                            <p> Data Scientist </p>
+                            <div class="team_member_social_icon">
+                                <a href="#">facebok</a>
+                                <a href="#">twitter</a>
+                                <a href="#">instagram</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <!-- team_member part end-->
+
+{% endblock main_content %}
+
