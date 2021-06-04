@@ -32,71 +32,176 @@
     <!-- Form Start -->
     <div class="jumbotron jumbotron-fluid">
         <div class="container">
+
+        
+
             <h1 class="display-3 text-center">Enter Information</h1>
             <p class="lead text-center">Correct information will give a better result</p>
             <hr class="my-2">
 
-            <div class="form-group">
-                  <input class="form-control" name="name" id="name" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Area Service'" placeholder="Enter Area Service">
-            </div>
+            <form action="." method="POST"> {% csrf_token %}
 
-            <div class="form-group">
-                  <input class="form-control" name="name" id="name" type="number" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Hospital ID'" placeholder="Enter Hospital ID">
-            </div>
+                <div class="row">
 
-            <div class="form-group">
-                  <input class="form-control" name="name" id="name" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your Age'" placeholder="Enter your Age">
-            </div>
+                    <div class="col-lg-6 col-12">
 
-            <div class="form-group">
-                  <input class="form-control" name="name" id="name" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Gender'" placeholder="Gender">
-            </div>
+                        <div class="form-group">
+                            <select name="area_service" id="area_service" class="form-control">
+                                <option value="Western NY" class="option">Western NY</option>
+                                <option value="Finger Lakes" class="option">Finger Lakes</option>
+                                <option value="Central NY" class="option">Central NY</option>
+                                <option value="Southern Tier" class="option">Southern Tier</option>
+                                <option value="Capital/Adirond" class="option">Capital/Adirond</option>
+                                <option value="Hudson Valley" class="option">Hudson Valley</option>
+                                <option value="New York City" class="option">New York City</option>
+                            </select>
+                        </div>
 
-            <div class="form-group">
-                  <input class="form-control" name="name" id="name" type="number" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Days Spend in Hospital'" placeholder="Days Spend in Hospital">
-            </div>
+                        <div class="form-group">
+                            <select name="age" id="age" class="form-control">
+                                <option value="0 to 17">0 to 17</option>
+                                <option value="18 to 29">18 to 29</option>
+                                <option value="30 to 49">30 to 49</option>
+                                <option value="50 to 69">50 to 69</option>
+                                <option value="70 or Older">70 or Older</option>
+                            </select>
+                        </div>
 
-            <div class="form-group">
-                  <input class="form-control" name="name" id="name" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Admission Type'" placeholder="Enter Admission Type">
-            </div>
+                        <div class="form-group">
+                            <select name="gender" id="gender" class="form-control">
+                                <option value="F">Female</option>
+                                <option value="M">Male</option>
+                                <option value="U">Unknown</option>
+                            </select>
+                        </div>
 
-            <div class="form-group">
-                  <input class="form-control" name="name" id="name" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Type of care taken'" placeholder="Type of care taken">
-            </div>
+                        <div class="form-group">
+                            <select name="cultural_group" id="cultural_group" class="form-control">
+                                <option value="White">White</option>
+                                <option value="Other Race">Other Race</option>
+                                <option value="Black/African American">Black/African American</option>
+                                <option value="Unknown">Unknown</option>
+                            </select>
+                        </div>
 
-            <div class="form-group">
-                  <input class="form-control" name="name" id="name" type="number" onfocus="this.placeholder = ''" onblur="this.placeholder = 'CCS Diagnosis Code'" placeholder="CCS Diagnosis Code">
-            </div>
+                        <div class="form-group">
+                            <select name="ethnicity" id="ethnicity" class="form-control">
+                                <option value="Not Span/Hispanic">Not Span/Hispanic</option>
+                                <option value="Spanish/Hispanic">Spanish/Hispanic</option>
+                                <option value="Unknown">Unknown</option>
+                            </select>
+                        </div>
 
-            <div class="form-group">
-                  <input class="form-control" name="name" id="name" type="number" onfocus="this.placeholder = ''" onblur="this.placeholder = 'CCS Procedure Code'" placeholder="CCS Procedure Code">
-            </div>
-            
-            <div class="form-group">
-                  <input class="form-control" name="name" id="name" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Mortality Risk'" placeholder="Mortality Risk">
-            </div>
+                        <div class="form-group">
+                            <input class="form-control" name="days_in_hsptl" id="days_in_hsptl" type="number" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Days Spend in the Hospital'" placeholder="Days Spend in the Hospital">
+                        </div>
 
-            <div class="form-group">
-                  <input class="form-control" name="name" id="name" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Surgery Description'" placeholder="Surgery Description">
-            </div>
-            
-            <div class="form-group">
-                  <input class="form-control" name="name" id="name" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Emergency'" placeholder="Emergency">
-            </div>
+                        <div class="form-group">
+                            <select name="admission_type" id="admission_type" class="form-control">
+                                <option value="Elective">Elective</option>
+                                <option value="Urgent">Urgent</option>
+                                <option value="Emergency">Emergency</option>
+                                <option value="Newborn">New Born</option>
+                                <option value="Not Available">Not Available</option>
+                                <option value="Trauma">Trauma</option>
+                            </select>
+                        </div>
 
-            
-            <p class="lead text-center">
-                <div class = "row">
-                    
-                    <div class = "col-6">
-                        <a class="btn_1 bg-primary w-100 text-center" href="" role="button">CANCEL</a>
+                        <div class="form-group">
+                            <select name="care_type" id="care_type" class="form-control">
+                                <option value="Home or Self Care">Home or Self Care</option>
+                                <option value="Short-term Hospital">Short-term Hospital</option>
+                                <option value="Hosp Basd Medicare Approved Swing Bed">Hosp Basd Medicare Approved Swing Bed</option>
+                                <option value="Facility w/ Custodial/Supportive Care">Facility w/ Custodial/Supportive Care</option>
+                                <option value="Skilled Nursing Home">Skilled Nursing Home</option>
+                                <option value="Expired">Expired</option>
+                                <option value="Left Against Medical Advice">Left Against Medical Advice</option>
+                                <option value="Home w/ Home Health Services">Home w/ Home Health Services</option>
+                                <option value="Psychiatric Hospital or Unit of Hosp">Psychiatric Hospital or Unit of Hosp</option>
+                                <option value="Hospice - Home">Hospice - Home</option>
+                                <option value="Hospice - Medical Facility">Hospice - Medical Facility</option>
+                                <option value="Federal Health Care Facility">Federal Health Care Facility</option>
+                                <option value="Inpatient Rehabilitation Facility">Inpatient Rehabilitation Facility</option>
+                                <option value="Cancer Center or Children's Hospital">Cancer Center or Children's Hospital</option>
+                                <option value="Court/Law Enforcement">Court/Law Enforcement</option>
+                                <option value="Medicare Cert Long Term Care Hospital">Medicare Cert Long Term Care Hospital</option>
+                                <option value="Another Type Not Listed">Another Type Not Listed</option>
+                                <option value="Critical Access Hospital">Critical Access Hospital</option>
+                                <option value="Medicaid Cert Nursing Facility">Medicaid Cert Nursing Facility</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <input class="form-control" name="ccs_diag_code" id="ccs_diagnosis_code" type="number" onfocus="this.placeholder = ''" onblur="this.placeholder = 'CCS Diagnosis Code'" placeholder="CCS Diagnosis Code">
+                        </div>
+
                     </div>
 
-                    <div class = "col-6">
-                        <a class="btn_1 w-100 text-center" href="" role="button">SUBMIT<i class="ti-angle-right"></i></a>
+                    <div class="col-lg-6 col-12">
+                    
+                        <div class="form-group">
+                            <input class="form-control" name="ccs_procedure_code" id="ccs_procedure_code" type="number" onfocus="this.placeholder = ''" onblur="this.placeholder = 'CCS Procedure Code'" placeholder="CCS Procedure Code">
+                        </div>
+
+                        <div class="form-group">
+                            <input class="form-control" name="code_illness" id="code_illness" type="number" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Code Illness'" placeholder="Code Illness">
+                        </div>
+                        
+                        <div class="form-group">
+                            <input class="form-control" name="drug_desc" id="drug_desc" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Apr-Drug Description'" placeholder="Apr-Drug Description">
+                        </div>
+
+                        <div class="form-group">
+                            <input class="form-control" name="mortality_risk" id="mortality_risk" type="number" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Mortality Risk'" placeholder="Mortality Risk">
+                        </div>
+
+                        <div class="form-group">
+                            <select name="surgery_desc" id="surgery_desc" class="form-control">
+                                <option value="Medical">Medical</option>
+                                <option value="Surgical">Surgical</option>
+                                <option value="Not Applicable">Not Applicable</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <select name="emergency" id="emergency" class="form-control">
+                                <option value="Y">Yes</option>
+                                <option value="N">No</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <input class="form-control" name="total_charg" id="total_charg" type="number" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Total Charges'" placeholder="Total Charges">
+                        </div>
+
+                        <div class="form-group">
+                            <input class="form-control" name="total_cost" id="total_cost" type="number" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Total Cost'" placeholder="Total Cost">
+                        </div>
+                        
+                        <div class="form-group">
+                            <input class="form-control" name="payment_typology" id="payment_typology" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Payment Typology'" placeholder="Payment Typology">
+                        </div>
+                    </div>
+                    
+                    <div class="col-12 col-md-10 col-lg-8 mx-auto">
+                        <p class="lead text-center">
+                            <div class = "row">
+                                
+                                <div class = "col-6">
+                                    <input type="reset" class="btn_1 bg-primary w-100 text-center cancel-button" value="CANCEL">
+                                </div>
+                                
+                                <div class = "col-6">
+                                    <button type="submit" class="btn_1 w-100 text-center submit-button" id="submit_button">SUBMIT<i class="ti-angle-right"></i></button>
+                                </div>
+                            </div>
+                        </p>
                     </div>
                 </div>
-            </p>
+                
+
+            </form>
+
         </div>
     </div>
 
