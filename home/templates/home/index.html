@@ -46,7 +46,8 @@
                     <div class="col-lg-6 col-12">
 
                         <div class="form-group">
-                            <select name="area_service" id="area_service" class="form-control">
+                            <select name="Area_Service" id="area_service" class="form-control">
+                                <option value="">-- Area Service --</option>
                                 <option value="Western NY" class="option">Western NY</option>
                                 <option value="Finger Lakes" class="option">Finger Lakes</option>
                                 <option value="Central NY" class="option">Central NY</option>
@@ -58,7 +59,8 @@
                         </div>
 
                         <div class="form-group">
-                            <select name="age" id="age" class="form-control">
+                            <select name="Age" id="age" class="form-control">
+                                <option value="">-- Age --</option>
                                 <option value="0 to 17">0 to 17</option>
                                 <option value="18 to 29">18 to 29</option>
                                 <option value="30 to 49">30 to 49</option>
@@ -68,7 +70,8 @@
                         </div>
 
                         <div class="form-group">
-                            <select name="gender" id="gender" class="form-control">
+                            <select name="Gender" id="gender" class="form-control">
+                                <option value="">-- Gender --</option>
                                 <option value="F">Female</option>
                                 <option value="M">Male</option>
                                 <option value="U">Unknown</option>
@@ -76,7 +79,8 @@
                         </div>
 
                         <div class="form-group">
-                            <select name="cultural_group" id="cultural_group" class="form-control">
+                            <select name="Cultural_group" id="cultural_group" class="form-control">
+                                <option value="">-- Cultural Group --</option>
                                 <option value="White">White</option>
                                 <option value="Other Race">Other Race</option>
                                 <option value="Black/African American">Black/African American</option>
@@ -86,6 +90,7 @@
 
                         <div class="form-group">
                             <select name="ethnicity" id="ethnicity" class="form-control">
+                                <option value="">-- Ethnicity --</option>
                                 <option value="Not Span/Hispanic">Not Span/Hispanic</option>
                                 <option value="Spanish/Hispanic">Spanish/Hispanic</option>
                                 <option value="Unknown">Unknown</option>
@@ -97,7 +102,8 @@
                         </div>
 
                         <div class="form-group">
-                            <select name="admission_type" id="admission_type" class="form-control">
+                            <select name="Admission_type" id="admission_type" class="form-control">
+                                <option value=""> -- Admission Type --</option>
                                 <option value="Elective">Elective</option>
                                 <option value="Urgent">Urgent</option>
                                 <option value="Emergency">Emergency</option>
@@ -109,6 +115,7 @@
 
                         <div class="form-group">
                             <select name="care_type" id="care_type" class="form-control">
+                                <option value="">-- Type of Care --</option>
                                 <option value="Home or Self Care">Home or Self Care</option>
                                 <option value="Short-term Hospital">Short-term Hospital</option>
                                 <option value="Hosp Basd Medicare Approved Swing Bed">Hosp Basd Medicare Approved Swing Bed</option>
@@ -144,19 +151,38 @@
                         </div>
 
                         <div class="form-group">
-                            <input class="form-control" name="code_illness" id="code_illness" type="number" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Code Illness'" placeholder="Code Illness">
+                            <select name="Code_illness" id="code_illness" class="form-control">
+                                <option value="">-- Code Illness</option>
+                                <option value="1">Mild</option>
+                                <option value="2">Moderate</option>
+                                <option value="3">Severe</option>
+                                <option value="4">Indetermine</option>
+                            </select>
                         </div>
                         
                         <div class="form-group">
-                            <input class="form-control" name="drug_desc" id="drug_desc" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Apr-Drug Description'" placeholder="Apr-Drug Description">
+                            <select name="apr_drg_description" id="apr_drg_description" class="form-control">
+                                <option value="">-- Drug Description --</option>
+                                {% for drg_d in drg_desc %}
+                                <option value="{{ drg_d }}">{{ drg_d }}</option>
+                                {% endfor %}
+
+                            </select>
                         </div>
 
                         <div class="form-group">
-                            <input class="form-control" name="mortality_risk" id="mortality_risk" type="number" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Mortality Risk'" placeholder="Mortality Risk">
+                            <select name="Mortality risk" id="mortality_risk" class="form-control">
+                                <option value="">-- Mortality Risk --</option>
+                                <option value="1">Minor</option>
+                                <option value="2">Moderate</option>
+                                <option value="3">Major</option>
+                                <option value="4">Severe</option>
+                            </select>
                         </div>
 
                         <div class="form-group">
                             <select name="surgery_desc" id="surgery_desc" class="form-control">
+                                <option value="">-- Surgery Description --</option>
                                 <option value="Medical">Medical</option>
                                 <option value="Surgical">Surgical</option>
                                 <option value="Not Applicable">Not Applicable</option>
@@ -165,6 +191,7 @@
                         
                         <div class="form-group">
                             <select name="emergency" id="emergency" class="form-control">
+                                <option value="">-- Emergency --</option>
                                 <option value="Y">Yes</option>
                                 <option value="N">No</option>
                             </select>
@@ -179,7 +206,14 @@
                         </div>
                         
                         <div class="form-group">
-                            <input class="form-control" name="payment_typology" id="payment_typology" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Payment Typology'" placeholder="Payment Typology">
+                            <select name="Payment_Typology" id="payment_typology" class="form-control">
+                                <option value="">-- Payment Typology --</option>
+                                <option value="1">Medicare</option>
+                                <option value="2">Medicaid</option>
+                                <option value="3">Other Governments</option>
+                                <option value="4">Department of Corrections</option>
+                                <option value="5">Private Health Insurance</option>
+                            </select>
                         </div>
                     </div>
                     
