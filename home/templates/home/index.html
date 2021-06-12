@@ -39,14 +39,14 @@
             <p class="lead text-center">Correct information will give a better result</p>
             <hr class="my-2">
 
-            <form action="." method="POST"> {% csrf_token %}
+            <form action="" method="POST"> {% csrf_token %}
 
                 <div class="row">
 
                     <div class="col-lg-6 col-12">
 
                         <div class="form-group">
-                            <select name="Area_Service" id="area_service" class="form-control">
+                            <select name="area_service" id="area_service" class="form-control">
                                 <option value="">-- Area Service --</option>
                                 <option value="Western NY" class="option">Western NY</option>
                                 <option value="Finger Lakes" class="option">Finger Lakes</option>
@@ -59,7 +59,7 @@
                         </div>
 
                         <div class="form-group">
-                            <select name="Age" id="age" class="form-control">
+                            <select name="age" id="age" class="form-control">
                                 <option value="">-- Age --</option>
                                 <option value="0 to 17">0 to 17</option>
                                 <option value="18 to 29">18 to 29</option>
@@ -70,7 +70,7 @@
                         </div>
 
                         <div class="form-group">
-                            <select name="Gender" id="gender" class="form-control">
+                            <select name="gender" id="gender" class="form-control">
                                 <option value="">-- Gender --</option>
                                 <option value="F">Female</option>
                                 <option value="M">Male</option>
@@ -79,7 +79,7 @@
                         </div>
 
                         <div class="form-group">
-                            <select name="Cultural_group" id="cultural_group" class="form-control">
+                            <select name="cultural_group" id="cultural_group" class="form-control">
                                 <option value="">-- Cultural Group --</option>
                                 <option value="White">White</option>
                                 <option value="Other Race">Other Race</option>
@@ -102,7 +102,7 @@
                         </div>
 
                         <div class="form-group">
-                            <select name="Admission_type" id="admission_type" class="form-control">
+                            <select name="admission_type" id="admission_type" class="form-control">
                                 <option value=""> -- Admission Type --</option>
                                 <option value="Elective">Elective</option>
                                 <option value="Urgent">Urgent</option>
@@ -151,7 +151,7 @@
                         </div>
 
                         <div class="form-group">
-                            <select name="Code_illness" id="code_illness" class="form-control">
+                            <select name="code_illness" id="code_illness" class="form-control">
                                 <option value="">-- Code Illness</option>
                                 <option value="1">Mild</option>
                                 <option value="2">Moderate</option>
@@ -164,14 +164,14 @@
                             <select name="apr_drg_description" id="apr_drg_description" class="form-control">
                                 <option value="">-- Drug Description --</option>
                                 {% for drg_d in drg_desc %}
-                                <option value="{{ drg_d }}">{{ drg_d }}</option>
+                                <option value="{{ drg_d.apr_drg_description }}">{{ drg_d.apr_drg_description }}</option>
                                 {% endfor %}
 
                             </select>
                         </div>
 
                         <div class="form-group">
-                            <select name="Mortality risk" id="mortality_risk" class="form-control">
+                            <select name="mortality_risk" id="mortality_risk" class="form-control">
                                 <option value="">-- Mortality Risk --</option>
                                 <option value="1">Minor</option>
                                 <option value="2">Moderate</option>
@@ -206,7 +206,7 @@
                         </div>
                         
                         <div class="form-group">
-                            <select name="Payment_Typology" id="payment_typology" class="form-control">
+                            <select name="payment_typology" id="payment_typology" class="form-control">
                                 <option value="">-- Payment Typology --</option>
                                 <option value="1">Medicare</option>
                                 <option value="2">Medicaid</option>
@@ -236,7 +236,14 @@
 
             </form>
 
+
         </div>
+
+        {% if request.method == "POST" %}
+            <div class="alert alert-success">
+                <p class="text-center">The Insurance Claim is: <strong>{{ predicted_value }}</strong></p>
+            </div>
+        {% endif %}
     </div>
 
     <!-- Form end -->
@@ -254,13 +261,10 @@
                 <div class="offset-lg-1 col-lg-4">
                     <div class="about_text">
                         <h5 style = "font-size: 1.6rem; font-weight: bold;">About the project</h5>
-                        <h2>Make the customer the
-                            hero of your story</h2>
-                        <h4>He hath his earth firmament air very itself light day moring morning you living saying good
-                            above fourth</h4>
-                        <p>Meat abundantly life made fly years there whose beginning crea unto beast sixth herb
-                            their bring. Evening fruitful god you spir evning itself land you of of own brought </p>
-                        <a href="#" class="btn_1">learn more <i class="ti-angle-right"></i> </a>
+                        <h2>Predicting easily the Fraud Insurance Claims</h2>
+                        <h4>This project is based on insurance claims</h4>
+                        <p>Finding the fraud insurance claims is a challenging task and this machine learning application is about to predict the fraud and genuine insurance claims.</p>
+                        <!-- <a href="#about" class="btn_1">learn more <i class="ti-angle-right"></i> </a> -->
                     </div>
                 </div>
             </div>
