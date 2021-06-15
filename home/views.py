@@ -1,8 +1,11 @@
-from django.http import request
-from django.shortcuts import render
-from .models import AprDrugDescription
 import joblib
 import pandas as pd
+
+from django.http import request
+from django.http import HttpResponse, JsonResponse
+from django.shortcuts import render
+from .models import AprDrugDescription
+
 
 def index_view(requests):
 
@@ -17,53 +20,15 @@ def index_view(requests):
         #     AprDrugDescription.objects.create(apr_drg_description = item)
     '''
     list_of_description = AprDrugDescription.objects.all()
-    if requests.method == "POST":
-        X_input = {
-            'Area_Service': requests.POST.get("area_service"),
-            'Age': requests.POST.get("age"),
-            'Gender': requests.POST.get("gender"),
-
-            'Cultural_group': requests.POST.get("cultural_group"),
-            'ethnicity': requests.POST.get("ethnicity"),
-            'Days_spend_hsptl': requests.POST.get("days_in_hsptl"),
-
-            'Admission_type': requests.POST.get("admission_type"),
-            'Home or self care,': requests.POST.get("care_type"),
-            'ccs_diagnosis_code': requests.POST.get("ccs_diag_code"),
-
-            'ccs_procedure_code': requests.POST.get("ccs_procedure_code"),
-            'Code_illness': requests.POST.get("code_illness"),
-            'apr_drg_description': requests.POST.get("apr_drg_description"),
-
-            'Mortality risk': requests.POST.get("mortality_risk"),
-            'Surg_Description': requests.POST.get("surgery_desc"),
-            'Emergency dept_yes/No': requests.POST.get("emergency"),
-
-            'Tot_charg': requests.POST.get("total_charg"),
-            'Tot_cost': requests.POST.get("total_cost"),
-            'Payment_Typology': requests.POST.get("payment_typology")
-
-        }
-
-        prediction = "Genuine"
-        predicted_value = predict_result(X_input)
-        if predicted_value == 1:
-            prediction = "Genuine"
-        else:
-            prediction = "Fraud"
-
-        return render(requests, "home/index.html", {'drg_desc': list_of_description, "predicted_value": prediction})
     
-    else:
-        list_of_description = AprDrugDescription.objects.all()
-        return render(requests, "home/index.html", {'drg_desc': list_of_description})
+    return render(requests, "home/index.html", {'drg_desc': list_of_description})
 
 
 def predict_result(data):
 
     # Importing model and encoders from the files.
-    encoders = joblib.load("/home/aladdin/Documents/ifa_project/insurance_fraud_analysis/home/ds_models/encoders.pkl")
-    model = joblib.load("/home/aladdin/Documents/ifa_project/insurance_fraud_analysis/home/ds_models/random_forest.pkl")
+    encoders = joblib.load("C:\\Users\\Malik\\Documents\\ifa_project\\insurance_fraud_analysis\\home\\ds_models\\encoders.pkl")
+    model = joblib.load("C:\\Users\\Malik\\Documents\\ifa_project\\insurance_fraud_analysis\\home\\ds_models\\random_forest.pkl")
     
     # Picking up categorical columns from the data recieved from the form
     cat = ['Area_Service', 'Age', 'Gender', 'Cultural_group', 'ethnicity',
@@ -87,3 +52,45 @@ def predict_result(data):
     predicted_value = model.predict(input_data)
     
     return predicted_value
+
+
+def ajax_prediction(request):
+    if request.method == "POST":
+        X_input = {
+            'Area_Service': request.POST['area_service'],
+            'Age': request.POST["age"],
+            'Gender': request.POST["gender"],
+
+            'Cultural_group': request.POST["cultural_group"],
+            'ethnicity': request.POST["ethnicity"],
+            'Days_spend_hsptl': request.POST["days_spend_hsptl"],
+
+            'Admission_type': request.POST["admission_type"],
+            'Home or self care,': request.POST["care_type"],
+            'ccs_diagnosis_code': request.POST["ccs_diag_code"],
+
+            'ccs_procedure_code': request.POST["ccs_procedure_code"],
+            'Code_illness': request.POST["code_illness"],
+            'apr_drg_description': request.POST["apr_drg_description"],
+
+            'Mortality risk': request.POST["mortality_risk"],
+            'Surg_Description': request.POST["surg_description"],
+            'Emergency dept_yes/No': request.POST["emergency"],
+
+            'Tot_charg': request.POST["total_charges"],
+            'Tot_cost': request.POST["total_cost"],
+            'Payment_Typology': request.POST["payment_typology"]
+
+        }
+
+        prediction = "Unknown"
+        predicted_value = predict_result(X_input)
+        if predicted_value == 1:
+            prediction = "Genuine"
+        else:
+            prediction = "Fraud"
+
+        print(prediction)
+    
+    return HttpResponse(prediction)
+

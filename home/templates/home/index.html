@@ -39,7 +39,7 @@
             <p class="lead text-center">Correct information will give a better result</p>
             <hr class="my-2">
 
-            <form action="" method="POST"> {% csrf_token %}
+            <form id="base_form" method="POST"> {% csrf_token %}
 
                 <div class="row">
 
@@ -239,11 +239,9 @@
 
         </div>
 
-        {% if request.method == "POST" %}
-            <div class="alert alert-success">
-                <p class="text-center">The Insurance Claim is: <strong>{{ predicted_value }}</strong></p>
+            <div class='mt-2 w-lg-50 w-md-70 w-100' id="result">
+                
             </div>
-        {% endif %}
     </div>
 
     <!-- Form end -->

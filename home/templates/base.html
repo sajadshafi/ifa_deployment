@@ -138,6 +138,51 @@
             } // End if
         });
         });
-</script>
+    </script>
+
+    <script>
+        $(document).on('submit', '#base_form', function(e) {
+            e.preventDefault();
+
+            $.ajax({
+                type: 'POST',
+                url: "{% url 'ajax_prediction' %}",
+                data: {
+                    area_service: $("#area_service").val(),
+                    age: $("#age").val(),
+                    gender: $("#gender").val(),
+
+                    cultural_group: $("#cultural_group").val(),
+                    ethnicity: $("#ethnicity").val(),
+                    days_spend_hsptl: $("#days_in_hsptl").val(),
+
+                    admission_type: $("#admission_type").val(),
+                    care_type: $("#care_type").val(),
+                    ccs_diag_code: $("#ccs_diagnosis_code").val(),
+
+                    ccs_procedure_code: $("#ccs_procedure_code").val(),
+                    code_illness: $("#code_illness").val(),
+                    apr_drg_description: $("#apr_drg_description").val(),
+
+                    mortality_risk: $("#mortality_risk").val(),
+                    surg_description: $("#surgery_desc").val(),
+                    emergency: $("#emergency").val(),
+
+                    total_charges: $("#total_charg").val(),
+                    total_cost: $("#total_cost").val(),
+                    payment_typology: $("#payment_typology").val(),
+
+                    'csrfmiddlewaretoken': $('input[name=csrfmiddlewaretoken]').val()
+                },
+
+                success: function(data) {
+                    // alert(data)
+                    $('#result').html("<p>The Insurance Claim is: <strong>" + data + "</strong></p>")
+                    $("#result > p").addClass("text-center");
+                    $("#result").addClass("alert alert-success");
+                }
+            });
+        });
+    </script>
   </body>
 </html>
