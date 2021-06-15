@@ -34,7 +34,7 @@ input:hover, input:focus {
 
 /* line 18,   */
 .section_padding {
-  padding: 140px 0px;
+  padding: 10px 0px;
 }
 
 @media only screen and (min-width: 992px) and (max-width: 1200px) {
@@ -3351,7 +3351,7 @@ ul {
 
 /* line 54,    */
 .form-contact .form-control {
-  border: 1px solid #f0e9ff;
+  border: 1px solid #969698;
   border-radius: 5px;
   height: 48px;
   padding-left: 18px;
